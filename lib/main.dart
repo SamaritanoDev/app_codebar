@@ -18,6 +18,7 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(useMaterial3: true),
       home: Scaffold(
         body: Center(
           child: Column(
@@ -29,8 +30,8 @@ class _MainAppState extends State<MainApp> {
               ),
               const SizedBox(height: 20),
               Text(
-                'Value: ${_barcodeScanRes.length >= 2 ? _barcodeScanRes.substring(1) : _barcodeScanRes}',
-                style: const TextStyle(fontSize: 20),
+                'Value: ${_barcodeScanRes.length >= 2 ? _barcodeScanRes.substring(1) : (_barcodeScanRes.isNotEmpty ? _barcodeScanRes : "No photo taken")}',
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
             ],
           ),
